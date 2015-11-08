@@ -61,7 +61,7 @@ A szépsége, hogy az utolsó előtti súly hangolása nagyon egyszerű, hiszen 
 \paragraph{Autoencoder}
 Az autoencoder egy speciális rendszer: van egy input(x) réteg, van egy úgynevezett rejtett(h) réteg és van egy output réteg, amelyet y-al fogunk jelölni, köztük egy $ W,b$ és $W^T,b^T$ mátrix. $dim(x) = dim(y) > dim(h)$. A hiba:
 \begin{equation}
-J(W,b) = \frac{1}{2}\sum_{i=0}^N (x^{(i)}-y^{(i)})^2
+J(W,b) = \frac{1}{2}\sum_{i=1}^N (x^{(i)}-y^{(i)})^2
 \end{equation}
 A várt kimenet, ahogy itt látható, a várt kimenet is x, ezért autoencoder, mert leviszi kisebb dimenzióba a világot majd ebből újrakreálja a bemenetet. Itt általában nagyon nagy dimenziós terekről beszélünk, például egy arckép esetén $dim(x) = 1 000 000.$ Pl.: nem felismeres arckep alapjan, ferfira -1 nore +1, ahol van birtokunkban van egy adatbazis. $ dim(x) = 10^6$-ben kell valamilyen döntési felületet létrehozni. Sok dimenzióban rengeteg lokális minimum lehetséges, nagyon durva lehet a kapott felület. A lépés sugara miatt gömbökben tudunk lepni. Minél több dimenziós kockát nézünk annál több csúcs van, azaz annál több a maradék, amit ezek nem fednek le (a gömb a sarokba nem ér be), így rengeteg a lokális minimum és nagyon furcsán nézhetnek ki. Ha van egy milliárd adatom, akkor hány dimenziós kell legyen az adatom, hány dimenziót feszít ez ki. Egy milliárd adat kb. 20 dimenziót feszít ki, ezeket jól meg kell határozni, ekkor teljesen vissza lehet állítani az eredetit. Ez bonyolult feladat. Ha keveset csökkentek a dimenziók számán, akkor egyszerűbb a feladat és hibamentesen visszaképezhető az eredeti. Ebből kell olyan eljárást csinálni, hogy jól csökkenthessünk.
 Ritka reprezentációs autoencoder eseten a belső reprezentáció nagyobb dimenziós, így gyorsabban-kevesebb mintából- tud tanulni de lassabban működik.
@@ -82,11 +82,11 @@ Az y vektor tehát (W mátrix, y,x,b vektorok): &$y = f(W\vec{x} + vec{b}) $\\
 A W felépítése: 
 \begin{equation}
 W = \begin{matrix}
-w_{1 1}&\cdots &w_{K 1}\\
+w_{11}&\cdots &w_{1K}\\
 \vdots & &\vdots \\ 
 w_{n1} &\cdots& w_{nK} \\
 \vdots & &\vdots \\ 
-w_{1K} &\cdots &w_{NK}
+w_{N1} &\cdots &w_{NK}
 \end{matrix}
 \end{equation}
 \paragraph{Hangolás és hibafüggvény}
@@ -192,7 +192,7 @@ Azert jo ez a modszer mert egyaltalan nem egyertelmu, hogy meddig kell iteralni.
 \chapter{EA. 15.10.19}
 \paragraph{Nezzuk meg a hazikat...}
 \paragraph{1. gyakorló feladat kis magyarazata.}
-$x^(pos)$ ket valoszinusegi valtozobol allo vektor.\\
+$x^{(pos)}$ ket valoszinusegi valtozobol allo vektor.\\
 Az $x_1$ $x_2$ azok az ertekek, sorsolni kell az eloszlasbol.\\
 Ezek gauss eloszlasok, (4,4) kozpontnal es (-4,-4)-nel. Ezek korul helyezkednek el a pontok. \\
 A tokeletes dontesi felulet y=-x, de ezt csak nagy elemszamnal kapjuk meg.\\
